@@ -38,7 +38,7 @@ function check_password($flag, $input)
 }
 function verify_password($flag, $password1, $password2)
 {
-    if ($flag and $password1 !== $password2) {
+    if ($flag and $password1 != $password2) {
         alert("Passwords Dont Match");
         $flag = FALSE;
     }
@@ -74,7 +74,7 @@ function check_if_email_exists($flag, $result)
 function check_if_password_match($flag, $result, $given_password)
 {
     if ($flag) {
-        if (mysqli_fetch_object($result)->password !== $given_password) {
+        if (mysqli_fetch_object($result)->password != $given_password) {
             alert("Wrong Password.");
             $flag = FALSE;
         }

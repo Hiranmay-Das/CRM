@@ -1,5 +1,5 @@
 <?php
-$hostname = 'localhost';
+$hostname = '127.0.0.1';
 $username = 'root';
 $password = '';
 $database = 'users';
@@ -10,6 +10,8 @@ if (!$conn) {
 }
 
 $create_db = "CREATE DATABASE IF NOT EXISTS users COLLATE=utf8mb4_general_ci;";
+
+mysqli_query($conn, $create_db);
 
 $flag = mysqli_select_db($conn, "$database");
 

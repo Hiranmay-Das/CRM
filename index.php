@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
             <div class="login-heading">
                 <h2>Log In</h2>
             </div>
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div class="form-grid">
                     <div class="login-label">
                         <label for="login-email">Email</label>

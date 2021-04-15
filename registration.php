@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
             <div class="register-heading">
                 <h2>Register Account</h2>
             </div>
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div class="form-grid">
                     <div class="register-label">
                         <label for="register-name">Name</label>
