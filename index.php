@@ -3,14 +3,17 @@ $title = "Log In - CRM";
 include("meta.php");
 include("connection.php");
 include("php_functions.php");
+session_start();
 $flag = TRUE;
 if (isset($_POST['submit'])) {
     $_POST = sanitize($_POST);
-    $query = "select email,password from `data` where email = '" . $_POST['email'] . "'";
+    $query = "select name,email,password from `data` where email = '" . $_POST['email'] . "'";
     $result = mysqli_query($conn, $query);
     $flag = check_if_email_exists($flag, $result, $_POST['email']);
     $flag = check_if_password_match($flag, $result, $_POST['password']);
+    $result = mysqli_query($conn, $query);
     if ($flag) {
+        $_SESSION["username"] = mysqli_fetch_object($result)->name;
         header("Location: dashboard.php");
     }
 }
