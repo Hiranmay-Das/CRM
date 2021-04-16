@@ -1,5 +1,6 @@
 body {
-    margin: 0px;
+    margin: 0;
+    overflow: hidden;
 }
 
 a {
@@ -14,7 +15,7 @@ a:hover {
 .main-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 80vh;
+    /* grid-auto-rows: 80vh; */
 }
 
 .UI-grid {
@@ -81,8 +82,9 @@ a:hover {
 .login-button button {
     font-size: clamp(16px, 2vw, 30px);
     font-family: sans-serif;
-    border-radius: 12px;
+    border-radius: 2em;
     background-color:rgb(6, 107, 175);
+    padding: 0.1em 0.6em;
 }
 
 .login-button button:hover {
@@ -109,4 +111,58 @@ a:hover {
     margin-right: 5vw;
     /**/
     /*IMAGE ALTERNATE*/
+}
+
+.register-heading {
+    font-size: clamp(17px, 3vw, 35px);
+    padding-top: 18vh;
+    margin-left: auto;
+    margin-right: 35%;
+}
+
+.register-label {
+    display: inline-block;
+    font-size: clamp(12px, 2.5vw, 26px);
+    width: 80%;
+    margin-right: 0;
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.register-input {
+    padding-left: 2vw;
+    padding-right: calc(50vw - 25vw);
+}
+
+.register-input input {
+    font-size: clamp(12px, 1.5vw, 28px);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+}
+
+.register-button {
+    grid-row: 6;
+    grid-column: 2;
+    width:57%;
+    text-align:right;
+}
+
+.register-button button {
+    font-size: clamp(16px, 2vw, 30px);
+    font-family: sans-serif;
+    border-radius: 2em;
+    background-color:rgb(6, 107, 175);
+    padding: 0.1em 0.6em;
+}
+
+.register-button button:hover {
+    color:white;
+    background-color: rgb(4, 76, 124);
+}
+
+.register-have-acc {
+    grid-column: 1/3;
+    font-size: clamp(20px, 2vw, 25px);
+    padding-left: 3vw;
 }
