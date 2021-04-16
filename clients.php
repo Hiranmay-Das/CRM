@@ -1,8 +1,7 @@
 <?php
-$title = "Dashboard - CRM";
+$title = "Clients - CRM";
 include("meta.php");
 include("header.php");
-include("sidebar.php");
 ?>
 
 <body>

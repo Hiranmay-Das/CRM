@@ -2,7 +2,6 @@
 $title = "Dashboard - CRM";
 include("meta.php");
 include("header.php");
-include("sidebar.php");
 ?>
 
 <body>

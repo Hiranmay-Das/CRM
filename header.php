@@ -1,4 +1,4 @@
-<div class="header">
+<header>
     <div class="header-grid">
         <nav class="header-menu" id="header-nav-menu">
             <a class="header-link" href="dashboard.php">Home</a>
@@ -19,4 +19,4 @@
         </nav>
     </div>
 
-</div>
+</header>
