@@ -14,9 +14,11 @@ if (isset($_POST['submit'])) {
         header("Location: dashboard.php");
     }
 }
+//DELETE THIS LINE LATER ----- IMPORTANT
+header("Location: dashboard.php");
 ?>
 
-<body>
+<body style="overflow:hidden">
     <div class="main-grid">
         <img id="index_img" src="images/tech-support.png" alt="Customer Care">
         <div class="UI-grid">
@@ -47,7 +49,7 @@ if (isset($_POST['submit'])) {
                         <label for="pass-vis">Show Password</label>
                     </div>
                     <div class="forgot-password">
-                        <a href="#">Forgot Password?</a>
+                        <a href="#" onclick="alert('Not Yet Implemented')">Forgot Password?</a>
                     </div>
                     <div class="login-button">
                         <button type="submit" name="submit">SIGN IN</button>

@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<body>
+<body style="overflow:hidden">
     <div class="main-grid">
         <img id="index_img" src="images/24-7 customer care.png" alt="Customer Care">
         <div class="UI-grid">
