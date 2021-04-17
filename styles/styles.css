@@ -167,11 +167,19 @@ a:hover {
     padding-left: 3vw;
 }
 
+.home-grid {
+    min-height: 100vh;
+    display:grid;
+    grid-template-rows: 7vh auto 10.9vh;
+}
+
+footer {
+    grid-row:3/4;
+    box-sizing: border-box;
+}
+
 .footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    height: 15%;
     align-items: center;
     background-color:black;
     color: #eee;
