@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     }
 }
 //DELETE THIS LINE LATER ----- IMPORTANT
-//header("Location: dashboard.php");
+header("Location: dashboard.php");
 ?>
 
 <body style="overflow:hidden">
