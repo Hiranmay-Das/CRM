@@ -58,8 +58,8 @@ function check_if_duplicate_email($flag, $conn, $email)
 }
 function insert_into_database($conn, $data)
 {
-    $query = "insert into data set name='" . $data['name'] . "', email='" . $data['email'] . "', password='" . $data['password'] . "', contact_no='" . $data['contact_no'] . "';";
-    $test = mysqli_query($conn, $query);
+    $query = "insert into data set name='" . $data['name'] . "', email='" . $data['email'] . "', password='" . password_hash($data['password'], PASSWORD_DEFAULT) . "', contact_no='" . $data['contact_no'] . "';";
+    mysqli_query($conn, $query);
 }
 function check_if_email_exists($flag, $result)
 {
@@ -74,7 +74,7 @@ function check_if_email_exists($flag, $result)
 function check_if_password_match($flag, $result, $given_password)
 {
     if ($flag) {
-        if (mysqli_fetch_object($result)->password != $given_password) {
+        if (!password_verify($given_password, mysqli_fetch_object($result)->password)) {
             alert("Wrong Password.");
             $flag = FALSE;
         }

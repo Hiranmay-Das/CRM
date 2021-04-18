@@ -20,7 +20,7 @@ include("meta.php");
                     <div class="dropmenu">
                         <a class="dropdown-link" href="#">My Profile</a>
                         <a class="dropdown-link" href="#">--PlaceHolder--</a>
-                        <a class="dropdown-link" href="#">Logout</a>
+                        <a class="dropdown-link" href="logout.php">Logout</a>
                     </div>
                 </span>
             </nav>
@@ -30,7 +30,7 @@ include("meta.php");
     <footer>
         <div class="footer">
             <div class="creator-name">
-                CRM Website created by Hiranmay Das, Gaurav Haldar and Imon --Surname--.
+                CRM Website created by Hiranmay Das, Gaurav Halder and Imon Sarkar.
             </div>
             <nav class="footer-menu">
                 <a class="footer-link" href="#" onclick="alert('Just For Show')">Home</a>

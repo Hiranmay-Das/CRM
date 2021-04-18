@@ -76,6 +76,3 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </body>
-<?php
-include("footer.php");
-?>
