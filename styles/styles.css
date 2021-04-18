@@ -351,7 +351,7 @@ footer {
     
 } */
 
-.sales-container, .clients-container {
+.sales-container, .clients-container, .product-container {
     grid-column : 2/4;
     grid-row: 2/5;
     width: 100%;
@@ -375,7 +375,7 @@ footer {
     width:75%;
 }
 
-.sales-container >h2, .clients-container > h2 {
+.sales-container > h2, .clients-container > h2, .product-container > h2 {
     margin: 0;
     font-size: 2em;
     padding-bottom: 2%;
@@ -407,12 +407,12 @@ footer {
     padding-top: 1.3%;
 }
 
-#show-cust-info, #save-cust-info {
+#show-cust-info, #save-cust-info, #show-prod-info {
     text-align:center;
     padding-top: 5%;
     background-color:transparent;
 }
-#show-cust-info:hover, #save-cust-info:hover, #delete-cust-info:hover {
+#show-cust-info:hover, #save-cust-info:hover, #delete-cust-info:hover, #show-prod-info:hover {
     background-color: #eee;
 }
 

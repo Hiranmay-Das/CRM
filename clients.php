@@ -59,7 +59,7 @@ if (isset($_POST['save-info'])) {
         </form>
         <button type="submit" name="show-info" form="request_info" class="home-links left-side invoice-card"
             id="show-cust-info">
-            Show Customer Info
+            Select Customer
         </button>
         <div class="clients-container">
             <h2>Customer Information</h2>

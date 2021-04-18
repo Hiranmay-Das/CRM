@@ -94,6 +94,14 @@ function get_product_count()
     return mysqli_num_rows($result);
 }
 
+function get_product($p_id)
+{
+    $conn = get_sql_conn();
+    $sql = "select name from products where p_id='$p_id'";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_object($result)->name;
+}
+
 function get_active_customers()
 {
     $conn = get_sql_conn();
@@ -163,14 +171,6 @@ function get_emp_name($u_id)
     return mysqli_fetch_object($result)->name;
 }
 
-function get_product($p_id)
-{
-    $conn = get_sql_conn();
-    $sql = "select name from products where p_id='$p_id'";
-    $result = mysqli_query($conn, $sql);
-    return mysqli_fetch_object($result)->name;
-}
-
 function add_customer($name, $email, $address, $contact_no, $status)
 {
     $sql = "insert into clients set name='" . $name . "', email='" . $email . "', address='" . $address . "', contact_no='" . $contact_no . "', status='" . $status . "';";
@@ -190,4 +190,20 @@ function delete_user($c_id)
     $sql = "delete from clients where c_id='" . $c_id . "';";
     $conn = get_sql_conn();
     mysqli_query($conn, $sql);
+}
+
+function get_all_products()
+{
+    $conn = get_sql_conn();
+    $sql = "select * from products";
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
+function get_companies()
+{
+    $conn = get_sql_conn();
+    $sql = "select distinct(provider) from products";
+    $result = mysqli_query($conn, $sql);
+    return $result;
 }
