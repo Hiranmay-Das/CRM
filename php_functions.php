@@ -128,23 +128,23 @@ function get_cust_info($c_id)
 
 function get_cust_name($data)
 {
-    return (!isset($_POST['cust_id']) or $_POST['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->name;
+    return (!isset($data['cust_id']) or $data['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->name;
 }
 function get_cust_email($data)
 {
-    return (!isset($_POST['cust_id']) or $_POST['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->email;
+    return (!isset($data['cust_id']) or $data['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->email;
 }
 function get_cust_contact($data)
 {
-    return (!isset($_POST['cust_id']) or $_POST['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->contact_no;
+    return (!isset($data['cust_id']) or $data['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->contact_no;
 }
 function get_cust_address($data)
 {
-    return (!isset($_POST['cust_id']) or $_POST['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->address;
+    return (!isset($data['cust_id']) or $data['cust_id'] == "new") ? "" : get_cust_info($data['cust_id'])->address;
 }
 function get_cust_status($data)
 {
-    return (!isset($_POST['cust_id']) or $_POST['cust_id'] == "new") ? "potential" : get_cust_info($data['cust_id'])->status;
+    return (!isset($data['cust_id']) or $data['cust_id'] == "new") ? "potential" : get_cust_info($data['cust_id'])->status;
 }
 
 function get_ongoing_sales_count()
@@ -206,4 +206,54 @@ function get_companies()
     $sql = "select distinct(provider) from products";
     $result = mysqli_query($conn, $sql);
     return $result;
+}
+
+function get_prod_info($p_id)
+{
+    $conn = get_sql_conn();
+    $sql = "select * from products where p_id='$p_id'";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_object($result);
+}
+
+function get_prod_name($data)
+{
+    return (!isset($data['p_id']) or $data['p_id'] == "new") ? "" : get_prod_info($data['p_id'])->name;
+}
+function get_prod_provider($data)
+{
+    return (!isset($data['p_id']) or $data['p_id'] == "new") ? "" : get_prod_info($data['p_id'])->provider;
+}
+function get_prod_price($data)
+{
+    return (!isset($data['p_id']) or $data['p_id'] == "new") ? "" : get_prod_info($data['p_id'])->price;
+}
+function get_prod_warranty($data)
+{
+    return (!isset($data['p_id']) or $data['p_id'] == "new") ? "" : get_prod_info($data['p_id'])->warranty;
+}
+function get_prod_specs($data)
+{
+    return (!isset($data['p_id']) or $data['p_id'] == "new") ? "" : get_prod_info($data['p_id'])->specification;
+}
+
+function add_product($name, $provider, $price, $warranty, $specification)
+{
+    $sql = "insert into products set name='" . $name . "', provider='" . $provider . "', price='" . $price . "', warranty='" . $warranty . "', specification='" . $specification . "';";
+    $conn = get_sql_conn();
+    mysqli_query($conn, $sql);
+}
+
+function update_product($name, $provider, $price, $warranty, $specification, $p_id)
+{
+    $sql = "update products set name='" . $name . "', provider='" . $provider . "', price='" . $price . "', warranty='" . $warranty . "', specification='" . $specification . "' where p_id='" . $p_id . "';";
+    $conn = get_sql_conn();
+    mysqli_query($conn, $sql);
+}
+
+function delete_product($p_id)
+{
+    $sql = "delete from products where p_id='" . $p_id . "';";
+    $conn = get_sql_conn();
+    mysqli_query($conn, $sql);
 }

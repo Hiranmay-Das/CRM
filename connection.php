@@ -36,7 +36,7 @@ $sql = "CREATE TABLE `products` (
 	`warranty` VARCHAR(3) NOT NULL,
 	`added_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 	`last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-	`specification` VARCHAR(10000) NULL DEFAULT NULL, 
+	`specification` VARCHAR(10000) NULL DEFAULT 'NONE', 
 	PRIMARY KEY (`p_id`)
 	) ENGINE = InnoDB;";
 

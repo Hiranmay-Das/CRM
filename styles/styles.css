@@ -407,21 +407,21 @@ footer {
     padding-top: 1.3%;
 }
 
-#show-cust-info, #save-cust-info, #show-prod-info {
+#show-cust-info, #save-cust-info, #show-prod-info, #save-prod-info {
     text-align:center;
     padding-top: 5%;
     background-color:transparent;
 }
-#show-cust-info:hover, #save-cust-info:hover, #delete-cust-info:hover, #show-prod-info:hover {
+#show-cust-info:hover, #save-cust-info:hover, #delete-cust-info:hover, #show-prod-info:hover, #delete-prod-info:hover, #save-prod-info:hover {
     background-color: #eee;
 }
 
-#show-cust-info:active{
+#show-cust-info:active, #show-prod-info:active{
     color:white;
     background-color:#222;
 }
 
-#save-cust-info:active {
+#save-cust-info:active, #save-prod-info:active {
     background-color: #538d22;
 }
 
@@ -429,12 +429,18 @@ footer {
     grid-column: 3/4;
 }
 
-#delete-cust-info {
+#delete-cust-info, #delete-prod-info {
     grid-column: 2/3;
     background-color:transparent;
     padding-top: 4.5%;
 }
 
-#delete-cust-info:active {
+#delete-cust-info:active, #delete-prod-info:active {
     background-color: red;
+}
+
+#prod-spec {
+    width: 75%;
+    height: 125%;
+    text-align:left;
 }
