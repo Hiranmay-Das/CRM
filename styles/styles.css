@@ -285,6 +285,156 @@ footer {
     background-color:#bbb;
 }
 
-.main-content {
+.main-container {
+    width:70%;
+    margin: 2% auto auto;
+    border: black 1px solid;
+    height: 90%;
+}
+
+.content-container {
+    display:grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+}
+
+.content-container > h2 {
+    font-weight: normal;
+    color:#aaa;
+    border-bottom: 1px black solid;
+    padding-left: 1%;
+    padding-top: 1.5%;
+    width: 94%;
+    margin:auto;
+    grid-row: 1/1;
+    grid-column:1/4;
+}
+
+.counts {
+    padding: 0;
+    font-weight:bold;
+    font-size: 2em;
+    padding-left: 10%;
+    padding-right: 5%;
+}
+
+.home-links {
+    display:block;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    font-size: 1.4em;
+    font-weight: bold;
+    border: 1px black solid;
+    border-radius: 1em;
+}
+
+.home-links:hover {
+    text-decoration: none;
+    color: inherit;
+    background-color: #eee;
+}
+
+.left-side {
+    margin: 0 10% 8%;
+}
+
+.right-side {
+    margin: 10% 8% 4%;
+    padding: 0% 4% 4%;
+    grid-column: 3/4;
+}
+
+/* .ticket-card {
+    
+} */
+
+.sales-container, .clients-container {
+    grid-column : 2/4;
+    grid-row: 2/5;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#send-info {
     display: grid;
+    row-gap: 20%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    font-size: 2em;
+}
+
+#send-info label {
+    text-align:center;
+}
+
+#send-info input,select{
+    margin-right:auto;
+    width:75%;
+}
+
+.sales-container >h2, .clients-container > h2 {
+    margin: 0;
+    font-size: 2em;
+    padding-bottom: 2%;
+    text-align:center;
+}
+
+.sales-table {
+    width: 95%;
+    height: 100%;
+    border: 2px #333 solid;
+    margin-right: 5%;
+    background-color:#eee;
+    border-radius: 2em;
+    border-spacing: 0;
+}
+
+.sales-cell {
+    font-size: 150%;
+    text-align:center;
+}
+
+.sales-cell:hover {
+    overflow:visible;
+}
+
+.invoice-card {
+    grid-column: 1/2;
+    font-size: 1.6em;
+    padding-top: 1.3%;
+}
+
+#show-cust-info, #save-cust-info {
+    text-align:center;
+    padding-top: 5%;
+    background-color:transparent;
+}
+#show-cust-info:hover, #save-cust-info:hover, #delete-cust-info:hover {
+    background-color: #eee;
+}
+
+#show-cust-info:active{
+    color:white;
+    background-color:#222;
+}
+
+#save-cust-info:active {
+    background-color: #538d22;
+}
+
+#save-cust-info {
+    grid-column: 3/4;
+}
+
+#delete-cust-info {
+    grid-column: 2/3;
+    background-color:transparent;
+    padding-top: 4.5%;
+}
+
+#delete-cust-info:active {
+    background-color: red;
 }

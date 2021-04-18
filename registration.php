@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $flag = verify_password($flag, $_POST['password'], $_POST['confirm-password']);
     $flag = check_if_duplicate_email($flag, $conn, $_POST['email']);
     if ($flag) {
-        insert_into_database($conn, $_POST);
+        create_user($conn, $_POST);
         header("Location: index.php");
     }
 }

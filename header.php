@@ -7,8 +7,7 @@ include_once("meta.php");
     <header>
         <div class="header-grid">
             <nav class="header-menu" id="header-nav-menu">
-                <a class="header-link <?php echo $active == "dashboard" ? "active" : ""; ?>"
-                    href="dashboard.php">Home</a>
+                <a class="header-link <?php echo $active == "home" ? "active" : ""; ?>" href="home.php">Home</a>
                 <a class="header-link <?php echo $active == "products" ? "active" : ""; ?>"
                     href="products.php">Products</a>
                 <a class="header-link <?php echo $active == "sales" ? "active" : ""; ?>" href="sales.php">Sales</a>
