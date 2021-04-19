@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     }
 }
 //DELETE THIS LINE LATER ----- IMPORTANT
-header("Location: home.php");
+//header("Location: home.php");
 ?>
 
 <body style="overflow:hidden">

@@ -447,7 +447,7 @@ footer {
 
 #sales-send-info {
     display: grid;
-    row-gap: 5%;
+    row-gap: 10%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(7, 1fr);
     font-size: 2em;

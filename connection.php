@@ -32,7 +32,7 @@ $sql = "CREATE TABLE `products` (
 	`p_id` INT NOT NULL AUTO_INCREMENT, 
 	`name` VARCHAR(30) NOT NULL, 
 	`provider` VARCHAR(30) NOT NULL, 
-	`price` VARCHAR(20) NOT NULL,
+	`price` BIGINT NOT NULL,
 	`warranty` VARCHAR(3) NOT NULL,
 	`added_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 	`last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
@@ -59,7 +59,7 @@ $sql = "CREATE TABLE `sales` (
 	`seller_id` INT NOT NULL, 
 	`buyer_id` INT NOT NULL, 
 	`sale_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-    `cost` VARCHAR(13) NOT NULL,
+    `cost` BIGINT NOT NULL,
     `status` VARCHAR(15) NOT NULL DEFAULT 'ongoing',
 	PRIMARY KEY (`sale_id`)) ENGINE = InnoDB;";
 
