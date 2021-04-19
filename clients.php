@@ -61,7 +61,7 @@ if (isset($_POST['save-info'])) {
             id="show-cust-info">
             Select Customer
         </button>
-        <div class="clients-container">
+        <div class="containers">
             <h2>Customer Information</h2>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="send-info">
                 <label for="cust-name">Name</label>

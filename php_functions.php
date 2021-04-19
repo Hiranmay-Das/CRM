@@ -86,6 +86,23 @@ function get_sql_conn()
     $conn = mysqli_connect("127.0.0.1", "root", "", "CRM");
     return $conn;
 }
+
+function get_all_users()
+{
+    $conn = get_sql_conn();
+    $sql = "select * from users";
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
+function get_user_info($u_id)
+{
+    $conn = get_sql_conn();
+    $sql = "select * from users where u_id='$u_id'";
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
 function get_product_count()
 {
     $conn = get_sql_conn();
@@ -171,6 +188,14 @@ function get_emp_name($u_id)
     return mysqli_fetch_object($result)->name;
 }
 
+function get_client_name($c_id)
+{
+    $conn = get_sql_conn();
+    $sql = "select name from clients where c_id='$c_id'";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_object($result)->name;
+}
+
 function add_customer($name, $email, $address, $contact_no, $status)
 {
     $sql = "insert into clients set name='" . $name . "', email='" . $email . "', address='" . $address . "', contact_no='" . $contact_no . "', status='" . $status . "';";
@@ -246,7 +271,7 @@ function add_product($name, $provider, $price, $warranty, $specification)
 
 function update_product($name, $provider, $price, $warranty, $specification, $p_id)
 {
-    $sql = "update products set name='" . $name . "', provider='" . $provider . "', price='" . $price . "', warranty='" . $warranty . "', specification='" . $specification . "' where p_id='" . $p_id . "';";
+    $sql = "update products set name='" . $name . "', provider='" . $provider . "', price='" . $price . "', warranty='" . $warranty . "', specification='" . $specification . "', last_modified=current_timestamp where p_id='" . $p_id . "';";
     $conn = get_sql_conn();
     mysqli_query($conn, $sql);
 }
@@ -255,5 +280,82 @@ function delete_product($p_id)
 {
     $sql = "delete from products where p_id='" . $p_id . "';";
     $conn = get_sql_conn();
+    mysqli_query($conn, $sql);
+}
+
+function get_ongoing_sales()
+{
+    $sql = "select * from sales where status='ongoing';";
+    $conn = get_sql_conn();
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
+function get_closed_sales()
+{
+    $sql = "select * from sales where status='closed';";
+    $conn = get_sql_conn();
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
+function get_total_sales()
+{
+    $sql = "select * from sales";
+    $conn = get_sql_conn();
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
+function get_sale_info($sale_id)
+{
+    $conn = get_sql_conn();
+    $sql = "select * from sales where sale_id='$sale_id'";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_object($result);
+}
+
+function get_latest_sale_id()
+{
+    $conn = get_sql_conn();
+    $sql = "select sale_id from sales order by sale_id desc limit 1;";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_object($result)->sale_id + 1;
+}
+
+function get_sale_id($data)
+{
+    return (!isset($data['sale_id'])) ? get_latest_sale_id() : $data['sale_id'];
+}
+function get_sale_product($data)
+{
+    return (!isset($data['sale_id'])) ? "" : get_prod_info(get_sale_info($data['sale_id'])->product_id)->name;
+}
+function get_sale_buyer($data)
+{
+    return (!isset($data['sale_id'])) ? "" : get_cust_info(get_sale_info($data['sale_id'])->buyer_id)->name;
+}
+function get_sale_cost($data)
+{
+    return (!isset($data['sale_id'])) ? "" : get_sale_info($data['sale_id'])->cost;
+}
+function get_sale_seller($data)
+{
+    return (!isset($data['sale_id'])) ? "" : get_emp_name(get_sale_info($data['sale_id'])->product_id);
+}
+function get_sale_date($data)
+{
+    return (!isset($data['sale_id'])) ? date('Y-m-d H:i:s') : get_sale_info($data['sale_id'])->sale_date;
+}
+function log_sale($product_id, $seller_id, $buyer_id, $sale_date, $cost, $status)
+{
+    $conn = get_sql_conn();
+    $sql = "insert into sales set product_id='$product_id', seller_id='$seller_id', buyer_id='$buyer_id', sale_date='$sale_date',cost='$cost', status='$status';";
+    mysqli_query($conn, $sql);
+}
+function update_sale($sale_id, $product_id, $seller_id, $buyer_id, $sale_date, $cost, $status)
+{
+    $conn = get_sql_conn();
+    $sql = "update sales set product_id='$product_id', seller_id='$seller_id', buyer_id='$buyer_id', sale_date='$sale_date',cost='$cost', status='$status' where sale_id='$sale_id';";
     mysqli_query($conn, $sql);
 }

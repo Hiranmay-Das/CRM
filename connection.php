@@ -58,7 +58,7 @@ $sql = "CREATE TABLE `sales` (
 	`product_id` INT NOT NULL, 
 	`seller_id` INT NOT NULL, 
 	`buyer_id` INT NOT NULL, 
-	`sale_date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+	`sale_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     `cost` VARCHAR(13) NOT NULL,
     `status` VARCHAR(15) NOT NULL DEFAULT 'ongoing',
 	PRIMARY KEY (`sale_id`)) ENGINE = InnoDB;";

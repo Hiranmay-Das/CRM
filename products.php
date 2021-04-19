@@ -1,5 +1,5 @@
 <?php
-$title = "Clients - CRM";
+$title = "Products - CRM";
 $active = "products";
 include("meta.php");
 include("header.php");
@@ -51,7 +51,7 @@ if (isset($_POST['save-info'])) {
             id="show-prod-info">
             Select Product
         </button>
-        <div class="product-container">
+        <div class="containers">
             <h2>Product Information</h2>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="send-info">
                 <label for="prod-name">Name</label>
@@ -65,9 +65,7 @@ if (isset($_POST['save-info'])) {
                 <input name="warranty" id="prod-warranty" type="text" value="<?php echo get_prod_warranty($_POST); ?>"
                     required>
                 <label for="prod-spec">Specifications</label>
-                <textarea name="spec" id="prod-spec">
-                    <?php echo get_prod_specs($_POST); ?>
-                </textarea>
+                <textarea name="spec" id="prod-spec"><?php echo get_prod_specs($_POST); ?></textarea>
                 <input type="hidden" name="p_id" value="<?php echo isset($_POST['p_id']) ? $_POST['p_id'] : "new"; ?>">
             </form>
         </div>

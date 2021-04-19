@@ -351,11 +351,18 @@ footer {
     
 } */
 
-.sales-container, .clients-container, .product-container {
+.containers {
     grid-column : 2/4;
     grid-row: 2/5;
     width: 100%;
     box-sizing: border-box;
+}
+
+.containers > h2 {
+    margin: 0;
+    font-size: 2em;
+    padding-bottom: 2%;
+    text-align:center;
 }
 
 #send-info {
@@ -373,13 +380,6 @@ footer {
 #send-info input,select{
     margin-right:auto;
     width:75%;
-}
-
-.sales-container > h2, .clients-container > h2, .product-container > h2 {
-    margin: 0;
-    font-size: 2em;
-    padding-bottom: 2%;
-    text-align:center;
 }
 
 .sales-table {
@@ -443,4 +443,21 @@ footer {
     width: 75%;
     height: 125%;
     text-align:left;
+}
+
+#sales-send-info {
+    display: grid;
+    row-gap: 5%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    font-size: 2em;
+}
+
+#sales-send-info label {
+    text-align:center;
+}
+
+#sales-send-info input,select{
+    margin-right:auto;
+    width:75%;
 }

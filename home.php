@@ -23,7 +23,7 @@ include("php_functions.php");
         <a class="home-links left-side invoice-card">
             <span class="counts">+</span> Create Invoice
         </a>
-        <div class="sales-container">
+        <div class="containers">
             <h2>Top 5 Sales</h2>
             <table class="sales-table">
                 <tr class="sales-row">
